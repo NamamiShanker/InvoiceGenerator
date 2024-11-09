@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "a7ccddae-6c88-42b8-ae19-9309cbdbb5f2",
+		"name": "PdfGenerationService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28029211"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate PDF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"seller\": \"XYZ Pvt. LTD\",\n    \"sellerGstin\": \"29AABBCCDD121ZD\",\n    \"sellerAddress\": \"New Delhi, India\",\n    \"buyer\": \"Vedant Computers\",\n    \"buyerGstin\": \"29AABBCCDD131ZD\",\n    \"buyerAddress\": \"New Delhi, Indi\",\n    \"items\" : [\n        {\n            \"name\": \"Product 1\",\n            \"quantity\": \"12 Nos\",\n            \"rate\": 123.00,\n            \"amount\": 1476.00\n        },\n        {\n            \"name\": \"Product 2\",\n            \"quantity\": \"11 Nos\",\n            \"rate\": 124.00,\n            \"amount\": 1564.00\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download PDF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/download?fileName=1B222B6FFE5E3FBCA93FD8501C29A23C01BF0ACF97E841A64FE3E10F14451A5A.pdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"download"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "1B222B6FFE5E3FBCA93FD8501C29A23C01BF0ACF97E841A64FE3E10F14451A5A.pdf"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
