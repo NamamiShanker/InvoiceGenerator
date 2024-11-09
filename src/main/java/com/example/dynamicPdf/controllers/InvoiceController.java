@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
 
 @RestController
 @RequestMapping("/api")
@@ -35,7 +36,7 @@ public class InvoiceController {
             GenerateInvoiceResponse response = new GenerateInvoiceResponse(HttpStatus.OK.value(), null, filePath);
             return ResponseEntity.ok(response);
         }
-        catch (IOException e) {
+        catch (IOException | NoSuchAlgorithmException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
