@@ -25,7 +25,7 @@ public class PdfGeneratorService {
 
     public String generatePdf(InvoiceRequest request) throws IOException, NoSuchAlgorithmException {
         String hash = generateHash(request);
-        String fileName = hash + ".pdf";
+        String fileName = hash + Constants.PDF_EXTENSION;
         String outputPath = Constants.INVOICES_DIRECTORY + File.separator + fileName;
         File pdfFile = new File(outputPath);
         if(pdfFile.exists() && !pdfFile.isDirectory()) {
